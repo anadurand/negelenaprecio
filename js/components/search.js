@@ -38,9 +38,12 @@ const Search = (update) => {
   const containerStations = $('<div class="container-stations"></div>');
 
   input.on("keyup", (e) => {
-    //e.preventDefault();
-    const filterStations = filterByDistrict(state.stations, $(e.currentTarget).val());
-    reRender(containerStations, filterStations,update);
+    if(e.keyCode == 13){
+      //e.preventDefault();
+      const filterStations = filterByDistrict(state.stations, $(e.currentTarget).val());
+      reRender(containerStations, filterStations, update);
+    }
+    
   });
   search.append(icon);
   search.append(input);
